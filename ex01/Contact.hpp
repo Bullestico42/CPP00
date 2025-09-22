@@ -1,63 +1,33 @@
+#ifndef CONTACT_HPP
+# define CONTACT_HPP 
+
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Contact
 {
     private:
-        string  FirstName;
-        string  LastName;
-        string  DarkestSecret;
-        int     PhoneNumber;
+        std::string	_FirstName;
+        std::string	_LastName;
+        std::string _NickName;
+        std::string	_DarkestSecret;
+        std::string _PhoneNumber;
     public:
-        string getFirstName();
-        void setFirstName(string FirstNameTemp);
-        string getLastName();
-        void setLastName(string LastNameTemp);
-        string getDarkestSecret();
-        void setDarkestSecret(string DarkestSecretTemp);
-        int getPhoneNumber();
-        void setPhoneNumber(int PhoneNumberTemp);
-        void setContact();
+    	Contact();
+		~Contact();
+		Contact(std::string first_name, std::string last_name, std::string nick_name,
+			std::string phone_number, std::string darkest_secret);
+        std::string     getFirstName();
+        void            setFirstName(std::string FirstNameTemp);
+        std::string     getLastName();
+        void            setLastName(std::string LastNameTemp);
+        std::string     getNickName();
+        void            setNickName(std::string NickNameTemp);
+        std::string     getDarkestSecret();
+        void            setDarkestSecret(std::string DarkestSecretTemp);
+        std::string     getPhoneNumber();
+        void            setPhoneNumber(std::string PhoneNumberTemp);
+        static Contact  setContact();
 };
 
-string Contact::getFirstName()
-{
-    return (FirstName);
-}
-
-void    Contact::setFirstName(string FirstNameTemp)
-{
-    FirstName = FirstNameTemp;
-}
-
-string Contact::getLastName()
-{
-    return (LastName);
-}
-
-void    Contact::setLastName(string LastNameTemp)
-{
-    LastName = LastNameTemp;
-}
-
-string Contact::getDarkestSecret()
-{
-    return (DarkestSecret);
-}
-
-void    Contact::setDarkestSecret(string DarkestSecretTemp)
-{
-    DarkestSecret = DarkestSecretTemp;
-}
-
-int Contact::getPhoneNumber()
-{
-    return (PhoneNumber);
-}
-
-void    Contact::setPhoneNumber(int PhoneNumberTemp)
-{
-    PhoneNumber = PhoneNumberTemp;
-}
-
+# endif
