@@ -2,7 +2,6 @@
 # define CONTACT_HPP 
 
 #include <iostream>
-#include <string>
 
 class Contact
 {
@@ -27,7 +26,9 @@ class Contact
         void            setDarkestSecret(std::string DarkestSecretTemp);
         std::string     getPhoneNumber();
         void            setPhoneNumber(std::string PhoneNumberTemp);
-        static Contact  setContact();
+        bool            setContact();
+        void            displayContact() const;
+        void            displayList(int index) const;
 };
 
 # endif

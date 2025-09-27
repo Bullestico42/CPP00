@@ -1,5 +1,5 @@
 NAME := phonebook
-SRCS := main.cpp Contact.cpp
+SRCS := main.cpp Contact.cpp PhoneBook.cpp
 OBJS = $(SRCS:.cpp=.o)
 CC = c++ -Wall -Wextra -Werror -std=c++98 #-fsanitize=address,undefined -fno-omit-frame-pointer -g -O0
 RM = rm -f

@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <cctype>
+
 #include "Contact.hpp"
 
 Contact::Contact()
@@ -73,9 +72,8 @@ void    Contact::setPhoneNumber(std::string PhoneNumberTemp)
     _PhoneNumber = PhoneNumberTemp;
 }
 
-Contact    Contact::setContact()
+bool    Contact::setContact()
 {
-    Contact     User;
     std::string fn;
     std::string ln;
     std::string ds;
@@ -85,53 +83,38 @@ Contact    Contact::setContact()
 
     state = 0;
 
-    std::cout << std::endl << "first name: ";
-    if (!(std::cin >> fn))
-        exit (0);
-    else if (fn.size() == 0) state = 1;
+    std::cout << "Creating new contact..." << std::endl;
+    std::cout << "first name: ";
+    std::getline(std::cin, fn);
+    if (fn.size() == 0) state = 1;
+    std::cout << "last name: ";
+    std::getline(std::cin, ln); 
+    if (ln.size() == 0) state = 1;
+    std::cout << "nickname: ";
+    std::getline(std::cin, nn);
+    if (nn.size() == 0) state = 1;
+    std::cout << "darkest secret: ";
+    std::getline(std::cin, ds);
+    if (ds.size() == 0) state = 1;
+    std::cout << "phone number: ";
+    std::getline(std::cin, pn);
+    if (pn.size() == 0) state = 1;
     else
-        User.setFirstName(fn);
-
-    std::cout  << std::endl << "last name: ";
-    if (!(std::cin >> ln))
-        exit (0);
-    else if (ln.size() == 0) state = 1;
-    else
-        User.setLastName(ln);
-
-    std::cout << std::endl << "nickname: ";
-    if (!(std::cin >> nn))
-        exit (0);
-    else if (nn.size() == 0) state = 1;
-    else
-        User.setNickName(nn);
-
-    std::cout << std::endl << "darkest secret: ";
-    if (!(std::cin >> ds))
-        exit (0);
-    else if (ds.size() == 0) state = 1;
-    else
-        User.setDarkestSecret(ds);
-
-    std::cout << std::endl << "phone number: ";
-    if (!(std::cin >> pn))
-        exit (0);
-    else if (pn.size() == 0) state = 1;
-    else
-        User.setPhoneNumber(pn);
-
     if (state > 0)
     {
         std::cout << "Case cannot be empty !" << std::endl;
-        return (User);
-        //return (setPhoneBook(User, state));
+        return false;
     }
-    else if (!std::all_of(pn.begin(), pn.end(), ::isalpha))
+    else if (std::all_of(pn.begin(), pn.end(), ::isalpha))
     {
         std::cout << "Phone number needs to be a number !" << std::endl;
-        return (User);
-        //return (setPhoneBook(User, state));
+        return false;
     }
-    return (User);
-    //return (setPhoneBook(User, state));
+    this->setFirstName(fn);
+    this->setLastName(ln);
+    this->setNickName(nn);
+    this->setDarkestSecret(ds);
+    this->setPhoneNumber(pn);
+    std::cout << "Contact created succesfully" << std::endl;
+    return true;
 }

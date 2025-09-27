@@ -1,22 +1,22 @@
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 int main(void)
 {
+    PhoneBook   pb;
     while (1 > 0)
     {
         std::string arg;
 
         std::cout << "PhoneBook: ";
-        if (!(std::cin >> arg))
+        if (!std::getline(std::cin, arg))
             break ;
         if (arg == "ADD")
-            Contact newContact = Contact::setContact();
+            pb.AddContact(); 
         else if (arg == "SEARCH")
-            std::cout << "searching for contact" << std::endl;
+            pb.SearchContact();
         else if (arg == "EXIT")
             return (std::cout << "EXIT", 0);
-        else
-            std::cout << "Invalid command" << std::endl;
     }
     return (0);
 }
