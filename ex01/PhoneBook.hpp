@@ -18,6 +18,11 @@ class Contact
         std::string nickname;
         std::string password;
         int         phone_num;
+
+    public:
+        get_data();
+
+    
 };
 
 #endif
