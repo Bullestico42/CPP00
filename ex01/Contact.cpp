@@ -105,7 +105,7 @@ bool    Contact::setContact()
         std::cout << "Case cannot be empty !" << std::endl;
         return false;
     }
-    else if (std::all_of(pn.begin(), pn.end(), ::isalpha))
+    else if (!std::all_of(pn.begin(), pn.end(), ::isdigit))
     {
         std::cout << "Phone number needs to be a number !" << std::endl;
         return false;
